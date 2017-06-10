@@ -1,6 +1,6 @@
 <div>
   <div>Input number of books: <input [(ngModel)]="bookNumber"></div>
-  <div *ngFor="let book of books | slice : 0: bookNumber" appJavaScriptClass [currentBook]="book">
+  <div *ngFor="let book of books | slice : 0: bookNumber | sort : 'year'" appJavaScriptClass [currentBook]="book">
     <app-book [book]="book"></app-book>
   </div>
 </div>

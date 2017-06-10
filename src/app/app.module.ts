@@ -12,6 +12,7 @@ import { BookRegistrationComponent } from './book-registration/book-registration
 import { StyleDirective } from './style.directive';
 import { JavaScriptClassDirective } from './java-script-class.directive';
 import { BooksComponent } from './books/books.component';
+import { SortPipe } from './sort.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BooksComponent } from './books/books.component';
     BookRegistrationComponent,
     StyleDirective,
     JavaScriptClassDirective,
-    BooksComponent
+    BooksComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,
