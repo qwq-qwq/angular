@@ -15,8 +15,12 @@ export class BooksComponent {
 
   books: Array<Book>;
 
+  charNumber: number;
+
+  visible: boolean;
+
   constructor(private bookService: BookService, http: Http,
-  private el: ElementRef) {
+              private el: ElementRef) {
     this.refreshBooks();
     // http.get('/books.json').subscribe(response => this.books = response.json() || []);
     this.createObservable();
@@ -27,8 +31,8 @@ export class BooksComponent {
       .subscribe(x => console.log(x));
   }
 
-   refreshBooks(): void {
-     this.books = this.bookService.getBooks();
-   }
+  refreshBooks(): void {
+    this.books = this.bookService.getBooks();
+  }
 
 }

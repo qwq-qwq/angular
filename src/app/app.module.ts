@@ -13,6 +13,7 @@ import { StyleDirective } from './style.directive';
 import { JavaScriptClassDirective } from './java-script-class.directive';
 import { BooksComponent } from './books/books.component';
 import { SortPipe } from './sort.pipe';
+import { ShowDirective } from './show.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SortPipe } from './sort.pipe';
     StyleDirective,
     JavaScriptClassDirective,
     BooksComponent,
-    SortPipe
+    SortPipe,
+    ShowDirective
   ],
   imports: [
     BrowserModule,
