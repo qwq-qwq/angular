@@ -14,6 +14,8 @@ import { JavaScriptClassDirective } from './java-script-class.directive';
 import { BooksComponent } from './books/books.component';
 import { SortPipe } from './sort.pipe';
 import { ShowDirective } from './show.directive';
+import {GlobalEventService} from "./global-event.service";
+import { StatusComponent } from './status/status.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { ShowDirective } from './show.directive';
     JavaScriptClassDirective,
     BooksComponent,
     SortPipe,
-    ShowDirective
+    ShowDirective,
+    StatusComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { ShowDirective } from './show.directive';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [BookService, CurrencyPipe],
+  providers: [BookService, CurrencyPipe, GlobalEventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

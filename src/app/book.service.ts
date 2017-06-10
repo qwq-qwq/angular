@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Book} from "./book/book";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class BookService {
@@ -14,11 +15,11 @@ export class BookService {
     this.addBook(new Book("Switching to Angular 2", "Minko Gechev", 2016, "Start using TypeScript to supercharge your Angular 2 applications", 254, 10));
   }
 
-  getBooks(): Array<Book> {
-    return this.books;
+  getBooks(): Observable<Array<Book>> {
+    return Observable.of(this.books).delay(3000);
   }
 
-  private addBook(book:Book): void {
+  private addBook(book: Book): void {
     this.books.push(book);
   }
 
