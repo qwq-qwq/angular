@@ -23,7 +23,7 @@ export class BookRegistrationComponent implements OnInit {
       pages: formBuilder.control(''),
       description: formBuilder.control('')
     });
-    this.bookForm.get('title').setAsyncValidators(this.validateUniqueName);
+    this.bookForm.get('title').setAsyncValidators(this.validateUniqueName.bind(this));
   }
 
   isNotValid(controlName: string): boolean {
@@ -32,16 +32,16 @@ export class BookRegistrationComponent implements OnInit {
   }
 
   validateUniqueName(c: AbstractControl): Observable<ValidationErrors> {
-      return Observable.of(c.value)
-        .map(
-          title => this.bookService.isTitleUnique(title))
-        .map( flag => {
-           if (flag) {
-               return null;
-           } else {
-               return { titleDuplicate: true};
-           }
-        }).first();
+    return Observable.of(c.value)
+      .map(
+        title => this.bookService.isTitleUnique(title))
+      .map(flag => {
+        if (flag) {
+          return null;
+        } else {
+          return {titleDuplicate: true};
+        }
+      }).first();
   }
 
   createBook(): void {
