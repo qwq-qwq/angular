@@ -1,0 +1,10 @@
+[
+  {
+    "title": "JavaScript: The Good Parts",
+    "author" : "Douglas Crockford",
+    "pages": "172",
+    "year" : "2008",
+    "description": "This authoritative book scrapes away these bad features to reveal a subset of JavaScript that's more reliable, readable, and maintainable",
+    "price": "150.344"
+  }
+]
