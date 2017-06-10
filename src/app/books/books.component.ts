@@ -15,9 +15,9 @@ export class BooksComponent {
 
   books: Array<Book>;
 
-  constructor(/*private bookService: BookService, */http: Http) {
-    //this.refreshBooks();
-    http.get('/books.json').subscribe(response => this.books = response.json() || []);
+  constructor(private bookService: BookService, http: Http) {
+    this.refreshBooks();
+    // http.get('/books.json').subscribe(response => this.books = response.json() || []);
     this.createObservable();
   }
 
@@ -26,8 +26,8 @@ export class BooksComponent {
       .subscribe(x => console.log(x));
   }
 
-  // refreshBooks(): void {
-  //   this.books = this.bookService.getBooks();
-  // }
+   refreshBooks(): void {
+     this.books = this.bookService.getBooks();
+   }
 
 }
