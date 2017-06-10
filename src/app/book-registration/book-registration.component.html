@@ -7,7 +7,7 @@
   <div>
     <label for="author">Author</label>
     <input type="text" id="author" formControlName="author">
-    <div *ngIf="isNotValid('author')" style="color:red">Please, enter book author</div>
+    <div *ngIf="isNotValid('author')" style="color:red">Please, enter valid book author(at least 2 words)</div>
   </div>
   <div>
     <label for="year">Year</label>

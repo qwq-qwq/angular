@@ -3,6 +3,7 @@ import {Observer} from "rxjs/Rx";
 import {ApplicationEvent} from "./application-event";
 import {Subject} from "rxjs/Subject";
 import {NextObserver} from "rxjs/Observer";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class GlobalEventService {

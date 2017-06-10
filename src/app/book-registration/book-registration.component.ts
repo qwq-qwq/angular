@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BookService} from '../book.service';
 import {Book} from '../book/book';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {BookValidator} from "../book-validator";
 
 @Component({
   selector: 'app-book-registration',
@@ -15,7 +16,8 @@ export class BookRegistrationComponent implements OnInit {
     this.bookForm = formBuilder.group({
       title: formBuilder.control('', [Validators.required,
         Validators.minLength(3)]),
-      author: formBuilder.control('', [Validators.required, Validators.minLength(4)]),
+      author: formBuilder.control('', [Validators.required, Validators.minLength(4),
+        BookValidator.getAuthorValidator()]),
       year: formBuilder.control('', [Validators.pattern('\\d{4}')]),
       pages: formBuilder.control(''),
       description: formBuilder.control('')
