@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observer} from "rxjs/Rx";
 import {ApplicationEvent} from "./application-event";
 import {Subject} from "rxjs/Subject";
+import {NextObserver} from "rxjs/Observer";
 
 @Injectable()
 export class GlobalEventService {
@@ -10,7 +11,7 @@ export class GlobalEventService {
   constructor() {
   }
 
-  subscribe(observer: Observer<ApplicationEvent>) {
+  subscribe(observer: NextObserver<ApplicationEvent>) {
       this.subject.subscribe(observer);
   }
 

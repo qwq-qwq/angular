@@ -14,11 +14,12 @@ export class StatusComponent implements OnInit {
   component: string;
 
   constructor(private eventService: GlobalEventService) {
-    this.eventService.subscribe({'next': (event: ApplicationEvent) => {
-      this.status = event.message;
-      this.component = event.source;
-    }, 'error': value => {},
-      'complete' : () => {}});
+    this.eventService.subscribe({
+      'next': (event: ApplicationEvent) => {
+        this.status = event.message;
+        this.component = event.source;
+      }
+    });
   }
 
   ngOnInit() {
