@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {BookService} from '../book.service';
 import {Book} from '../book/book';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BookValidator} from "../book-validator";
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {BookValidator} from '../book-validator';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-book-registration',
@@ -22,11 +23,25 @@ export class BookRegistrationComponent implements OnInit {
       pages: formBuilder.control(''),
       description: formBuilder.control('')
     });
+    this.bookForm.get('title').setAsyncValidators(this.validateUniqueName);
   }
 
   isNotValid(controlName: string): boolean {
     return this.bookForm.get(controlName).touched &&
       !this.bookForm.get(controlName).valid;
+  }
+
+  validateUniqueName(c: AbstractControl): Observable<ValidationErrors> {
+      return Observable.of(c.value)
+        .map(
+          title => this.bookService.isTitleUnique(title))
+        .map( flag => {
+           if (flag) {
+               return null;
+           } else {
+               return { titleDuplicate: true};
+           }
+        }).first();
   }
 
   createBook(): void {
