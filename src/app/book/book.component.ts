@@ -11,6 +11,9 @@ export class BookComponent{
   @Input()
   book: Book;
 
+  @Input()
+  visibility: boolean;
+
   charNumber: number;
 
   constructor(private currencyPipe : CurrencyPipe) {

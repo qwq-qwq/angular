@@ -17,7 +17,7 @@ export class BooksComponent {
 
   charNumber: number;
 
-  visible: boolean;
+  visible= true;
 
   constructor(private bookService: BookService, http: Http,
               private el: ElementRef) {

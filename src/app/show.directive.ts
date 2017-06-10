@@ -5,7 +5,7 @@ import {Directive, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChange
 })
 export class ShowDirective implements OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
-    this.init(this.visibility);
+    this.init();
   }
 
   @Input()
@@ -14,8 +14,8 @@ export class ShowDirective implements OnChanges{
   constructor(private el: ElementRef, private renderer: Renderer2) {
   }
 
-  init(value: boolean): void {
-    if (value) {
+  init(): void {
+    if (this.visibility) {
       this.renderer.setStyle(this.el.nativeElement, 'visibility', 'visible');
     }
     else {

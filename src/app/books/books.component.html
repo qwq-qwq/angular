@@ -1,9 +1,8 @@
 <div>Show description: <input type="checkbox" [(ngModel)]="visible"></div>
-<div appShow [visibility]="visible">Some text</div>
 <div>
   <div>Input number of books: <input [(ngModel)]="bookNumber"></div>
   <div *ngFor="let book of books | slice : 0: bookNumber" appJavaScriptClass [currentBook]="book">
-    <app-book [book]="book"></app-book>
+    <app-book [book]="book" [visibility]="visible"></app-book>
   </div>
 </div>
 <div>Characters number: {{charNumber}}</div>
