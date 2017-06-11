@@ -17,6 +17,7 @@ import { ShowDirective } from './show.directive';
 import {GlobalEventService} from "./global-event.service";
 import { StatusComponent } from './status/status.component';
 import {GlobalSyncService} from "./global-emitter-service.service";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {GlobalSyncService} from "./global-emitter-service.service";
     BrowserModule,
     FormsModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule.forRoot()
   ],
   providers: [BookService, CurrencyPipe, GlobalEventService, GlobalSyncService],
   bootstrap: [AppComponent]

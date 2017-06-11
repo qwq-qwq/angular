@@ -1,4 +1,9 @@
 <div (click)="handleClick()">
+  <div>Rate this book:
+    <ngb-rating [(rate)]="book.rating"></ngb-rating>
+    <hr>
+    <pre>Current rating: <b>{{book.rating}}</b></pre>
+  </div>
   <h4 (click)="displayNumber(book.title)"><b>Book title:</b> {{book.title | quote}}</h4>
   <div (click)="displayNumber(book.author)"><b>Author</b> : {{book.author}}</div>
   <div (click)="displayNumber(book.year)"><b>Publication year</b>: {{book.year}}</div>

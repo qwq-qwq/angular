@@ -4,7 +4,8 @@ export class Book {
    year: number;
    description: string;
    pages: number;
-   price : number;
+   price: number;
+   rating = 0;
 
   constructor(title: string, author: string, year: number, description: string, pages: number,
   price: number) {
