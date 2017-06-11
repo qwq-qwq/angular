@@ -41,29 +41,32 @@ export class BooksComponent implements OnInit{
       .subscribe(x => console.log(x));
   }
 
-  private async generate(): Promise<number> {
-     let valid = true;
-     for (let i = this.counter; i < 1000000; i++) {
-       for (let j = 2; j < this.counter; j++) {
-          if (i % j === 0) {
-              valid = false;
-              break;
-          }
-       }
-       if (valid) {
-         return Promise.resolve(this.counter);
-       } else {
-          this.counter++;
-       }
-       valid = true;
-     }
-     return null;
+  private generate(start: number): number {
+    for (let i = start; i < 100000000; i++) {
+      let valid = true;
+      for (let j = 2; j < i; j++) {
+        if (i % j === 0) {
+          valid = false;
+          break;
+        }
+      }
+      if (valid) {
+        return i;
+      }
+    }
+    return null;
   }
 
   private createPrimeNumbers() {
-    // Observable.create((observer: Observer<number>) => {
-    //     const x = await this.generate();
-    // }).take(10).subscribe( x => console.log(x));
+    Observable.create((observer: Observer<number>) => {
+      let start = 1;
+      while (start != null) {
+        observer.next(start);
+        start = this.generate(start + 1);
+      }
+      observer.complete();
+
+    }).take(3).subscribe( x => console.log(x));
   }
 
   refreshBooks(): void {
