@@ -13,7 +13,7 @@ export class GlobalEventService implements IEventBus {
   constructor() {
   }
 
-  subscribe(consumer: IEventConsumer) {
+  subscribe(consumer: IEventConsumer): void {
     this.subject.subscribe({'next': event => consumer.handleEvent(event)});
   }
 

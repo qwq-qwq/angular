@@ -2,7 +2,7 @@ import {ApplicationEvent} from "./application-event";
 import {NextObserver} from "rxjs/Observer";
 
 export interface IEventBus {
-  subscribe(consumer: IEventConsumer);
+  subscribe(consumer: IEventConsumer): void;
 
   sendEvent(event: ApplicationEvent): void;
 }

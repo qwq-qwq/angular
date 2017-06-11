@@ -6,7 +6,7 @@ import {ApplicationEvent} from "./application-event";
 export class GlobalSyncService {
   private consumers: Array<IEventConsumer> = new Array();
 
-  subscribe(consumer: IEventConsumer) {
+  subscribe(consumer: IEventConsumer): void {
     this.consumers.push(consumer);
   }
 

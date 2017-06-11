@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {isNullOrUndefined} from "util";
 import {User} from "./user";
 
 @Injectable()
@@ -27,7 +26,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !isNullOrUndefined(this.loggedUser);
+    return this.loggedUser !== null && typeof this.loggedUser !== 'undefined';
   }
 
 }

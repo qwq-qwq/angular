@@ -71,7 +71,7 @@ export class BooksComponent implements OnInit {
       }
       observer.complete();
 
-    }).take(3).subscribe(x => console.log(x));
+    }).take(3).subscribe((x: any) => console.log(x));
   }
 
   refreshBooks(): void {
