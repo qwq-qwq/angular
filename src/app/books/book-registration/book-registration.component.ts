@@ -15,7 +15,7 @@ export class BookRegistrationComponent implements OnInit {
   @Input()
   book: Book;
 
-  private bookForm: FormGroup;
+  bookForm: FormGroup;
 
   constructor(private bookService: BookService, formBuilder: FormBuilder) {
     this.bookForm = formBuilder.group({
