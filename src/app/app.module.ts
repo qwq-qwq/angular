@@ -25,6 +25,9 @@ import {NewsModule} from "./news/news.module";
 import {BooksModule} from "./books/books.module";
 import { LoginComponent } from './login/login.component';
 import {AdministrationModule} from "./administration/administration.module";
+import {SharedModule} from "./shared/shared.module";
+import {AuthService} from "./shared/auth-service.service";
+import {AuthGuard} from "./auth.guard";
 
 @NgModule({
   declarations: [LoginComponent],
@@ -37,12 +40,13 @@ import {AdministrationModule} from "./administration/administration.module";
     RouterModule.forRoot(ROUTES),
     NewsModule,
     BooksModule,
-    AdministrationModule/*,
+    AdministrationModule,
+    SharedModule/*,
      BrowserAnimationsModule,
      MdCheckboxModule,
      MdButtonModule*/
   ],
-  providers: [],
+  providers: [ AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
