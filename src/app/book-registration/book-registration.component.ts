@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {BookService} from '../book.service';
 import {Book} from '../book/book';
 import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
@@ -12,6 +12,9 @@ import {Observable} from 'rxjs/Observable';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookRegistrationComponent implements OnInit {
+  @Input()
+  book: Book;
+
   private bookForm: FormGroup;
 
   constructor(private bookService: BookService, formBuilder: FormBuilder) {
@@ -52,6 +55,13 @@ export class BookRegistrationComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.book) {
+      this.bookForm.get('title').setValue(this.book.title);
+      this.bookForm.get('author').setValue(this.book.author);
+      this.bookForm.get('pages').setValue(this.book.pages);
+      this.bookForm.get('description').setValue(this.book.description);
+      this.bookForm.get('year').setValue(this.book.year);
+    }
   }
 
 }

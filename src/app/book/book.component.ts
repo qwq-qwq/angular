@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Book} from './book';
 import {CurrencyPipe} from '@angular/common';
 import {ApplicationEvent} from '../application-event';
+import {NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
+import {BookDetailWindowComponent} from '../book-detail-window/book-detail-window.component';
 
 @Component({
   selector: 'app-book',
@@ -20,11 +22,17 @@ export class BookComponent{
 
   charNumber: number;
 
-  constructor(private currencyPipe : CurrencyPipe) {
+  constructor(private currencyPipe : CurrencyPipe, private modalService: NgbModal) {
   }
 
   handleClick() {
      this.renderEvent.emit(new ApplicationEvent('Book ' + this.book.title, 'Click event'));
+  }
+
+  openDetail(): void {
+      const modalRef: NgbModalRef = this.modalService.open(BookDetailWindowComponent);
+      modalRef.componentInstance.book = this.book;
+
   }
 
   formatPrice(book: Book) : string {

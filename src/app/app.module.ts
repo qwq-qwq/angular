@@ -18,6 +18,7 @@ import {GlobalEventService} from "./global-event.service";
 import { StatusComponent } from './status/status.component';
 import {GlobalSyncService} from "./global-emitter-service.service";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { BookDetailWindowComponent } from './book-detail-window/book-detail-window.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     BooksComponent,
     SortPipe,
     ShowDirective,
-    StatusComponent
+    StatusComponent,
+    BookDetailWindowComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     NgbModule.forRoot()
   ],
   providers: [BookService, CurrencyPipe, GlobalEventService, GlobalSyncService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [BookDetailWindowComponent]
 })
 export class AppModule { }
