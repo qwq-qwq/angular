@@ -23,9 +23,11 @@ import {RouterModule} from "@angular/router";
 import {ROUTES} from "./app.routes";
 import {NewsModule} from "./news/news.module";
 import {BooksModule} from "./books/books.module";
+import { LoginComponent } from './login/login.component';
+import {AdministrationModule} from "./administration/administration.module";
 
 @NgModule({
-  declarations: [],
+  declarations: [LoginComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -34,7 +36,8 @@ import {BooksModule} from "./books/books.module";
     NgbModule.forRoot(),
     RouterModule.forRoot(ROUTES),
     NewsModule,
-    BooksModule/*,
+    BooksModule,
+    AdministrationModule/*,
      BrowserAnimationsModule,
      MdCheckboxModule,
      MdButtonModule*/
