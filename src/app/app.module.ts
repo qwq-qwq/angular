@@ -16,6 +16,7 @@ import { SortPipe } from './sort.pipe';
 import { ShowDirective } from './show.directive';
 import {GlobalEventService} from "./global-event.service";
 import { StatusComponent } from './status/status.component';
+import {GlobalSyncService} from "./global-emitter-service.service";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { StatusComponent } from './status/status.component';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [BookService, CurrencyPipe, GlobalEventService],
+  providers: [BookService, CurrencyPipe, GlobalEventService, GlobalSyncService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

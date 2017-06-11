@@ -3,7 +3,8 @@
 <div>
   <div>Input number of books: <input [(ngModel)]="bookNumber"></div>
   <div *ngFor="let book of books | slice : 0: bookNumber" appJavaScriptClass [currentBook]="book">
-    <app-book [book]="book" [visibility]="visible"></app-book>
+    <app-book [book]="book" [visibility]="visible"
+              (renderEvent)="handleChildClick($event)"></app-book>
   </div>
 </div>
 <div>Characters number: {{charNumber}}</div>

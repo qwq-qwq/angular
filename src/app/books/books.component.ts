@@ -6,29 +6,35 @@ import {Http} from '@angular/http';
 import {Observer} from 'rxjs/Observer';
 import {GlobalEventService} from '../global-event.service';
 import {ApplicationEvent} from '../application-event';
+import {GlobalSyncService} from "../global-emitter-service.service";
 
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css']
 })
-export class BooksComponent implements OnInit{
+export class BooksComponent implements OnInit {
   bookNumber: number;
 
   books: Array<Book>;
 
   charNumber: number;
 
-  visible= true;
+  visible = true;
 
   counter = 1;
 
   constructor(private bookService: BookService, http: Http,
-              private el: ElementRef, private eventService: GlobalEventService) {
+              private el: ElementRef, /* private eventService: GlobalEventService*/
+              private eventService: GlobalSyncService) {
     // this.refreshBooks();
     // http.get('/books.json').subscribe(response => this.books = response.json() || []);
     // this.createLatinCharacters();
     // this.createPrimeNumbers();
+  }
+
+  handleChildClick(event: ApplicationEvent): void {
+    console.log('Received event from: ' + event.source + ': ' + event.message);
   }
 
   ngOnInit(): void {
@@ -65,13 +71,14 @@ export class BooksComponent implements OnInit{
       }
       observer.complete();
 
-    }).take(3).subscribe( x => console.log(x));
+    }).take(3).subscribe(x => console.log(x));
   }
 
   refreshBooks(): void {
     this.eventService.sendEvent(new ApplicationEvent('Books', 'Books is loading ... '));
     const observable: Observable<Array<Book>> = this.bookService.getBooks();
-    observable.subscribe( value => this.books = value, err => {},
+    observable.subscribe(value => this.books = value, err => {
+      },
       () => this.eventService.sendEvent(new ApplicationEvent('Books', 'Books were loaded')));
   }
 

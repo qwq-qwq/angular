@@ -1,7 +1,11 @@
-<h4 (click)="displayNumber(book.title)"><b>Book title:</b> {{book.title | quote}}</h4>
-<div (click)="displayNumber(book.author)"><b>Author</b> : {{book.author}}</div>
-<div (click)="displayNumber(book.year)"><b>Publication year</b>: {{book.year}}</div>
-<div appShow [visibility]="visibility" (click)="displayNumber(book.description)"><b>Description</b>: {{book.description}}</div>
-<div><b>Price</b>: {{formatPrice(book) }}</div>
+<div (click)="handleClick()">
+  <h4 (click)="displayNumber(book.title)"><b>Book title:</b> {{book.title | quote}}</h4>
+  <div (click)="displayNumber(book.author)"><b>Author</b> : {{book.author}}</div>
+  <div (click)="displayNumber(book.year)"><b>Publication year</b>: {{book.year}}</div>
+  <div appShow [visibility]="visibility" (click)="displayNumber(book.description)"><b>Description</b>:
+    {{book.description}}
+  </div>
+  <div><b>Price</b>: {{formatPrice(book) }}</div>
 
-<div>Characters number: {{charNumber}}</div>
+  <div>Characters number: {{charNumber}}</div>
+</div>
