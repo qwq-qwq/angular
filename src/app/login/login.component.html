@@ -1,13 +1,14 @@
-<form>
+<form (submit)="login()" [formGroup]="loginForm">
   <div class="container">
     <div>
       <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter Username" formControlName="username">
     </div>
     <div>
       <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" formControlName="password">
     </div>
+    <div *ngIf="errorText">{{errorText}}</div>
     <button type="submit">Login</button>
     <button type="button">Cancel</button>
   </div>
