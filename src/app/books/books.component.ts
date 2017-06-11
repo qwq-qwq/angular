@@ -1,6 +1,5 @@
 import {Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {Book} from '../book/book';
-import {CurrencyPipe} from '@angular/common';
 import {BookService} from '../book.service';
 import {Observable} from 'rxjs/Rx';
 import {Http} from '@angular/http';
@@ -14,10 +13,6 @@ import {ApplicationEvent} from '../application-event';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit{
-  ngOnInit(): void {
-    this.refreshBooks();
-  }
-
   bookNumber: number;
 
   books: Array<Book>;
@@ -34,6 +29,10 @@ export class BooksComponent implements OnInit{
     // http.get('/books.json').subscribe(response => this.books = response.json() || []);
     // this.createLatinCharacters();
     // this.createPrimeNumbers();
+  }
+
+  ngOnInit(): void {
+    this.refreshBooks();
   }
 
   private createLatinCharacters() {

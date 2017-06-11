@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {BookService} from '../book.service';
 import {Book} from '../book/book';
 import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
@@ -8,7 +8,8 @@ import {Observable} from 'rxjs/Observable';
 @Component({
   selector: 'app-book-registration',
   templateUrl: './book-registration.component.html',
-  styleUrls: ['./book-registration.component.css']
+  styleUrls: ['./book-registration.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookRegistrationComponent implements OnInit {
   private bookForm: FormGroup;
