@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {IEventBus, IEventConsumer} from "./event-service";
-import {NextObserver} from "rxjs/Observer";
 import {ApplicationEvent} from "./application-event";
 
 @Injectable()
